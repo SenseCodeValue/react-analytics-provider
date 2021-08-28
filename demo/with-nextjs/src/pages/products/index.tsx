@@ -1,5 +1,6 @@
 import {NextPage} from 'next';
 import {useRouter} from 'next/dist/client/router';
+import {AnalyticsClick} from '../../../../../build';
 import styles from './index.module.css';
 
 const ColorPage: NextPage = () => {
@@ -10,9 +11,11 @@ const ColorPage: NextPage = () => {
     <>
       <h1>{color} fruites</h1>
       <ul className={styles.container}>
-        {getProductsByColor(color).map(_color => (
-          <li key={_color}>{_color}</li>
-        ))}
+        {getProductsByColor(color).map(_color => {
+          <AnalyticsClick key={_color} name="color" params={{_color}}>
+            <li key={_color}>{_color}</li>
+          </AnalyticsClick>;
+        })}
       </ul>
     </>
   );
