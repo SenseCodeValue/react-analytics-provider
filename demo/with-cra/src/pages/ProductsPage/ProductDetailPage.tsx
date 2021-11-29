@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 import {Button} from '../../components/Buttons';
+import {ProductType} from '../../types/Product';
 
-const ProductDetailPage = ({product}: {product: string}) => {
+const ProductDetailPage = ({product}: {product: ProductType}) => {
   return (
     <Wrapper>
-      <Title>{product}</Title>
-      <Image src="https://img.freepik.com/free-photo/colorful-fruits-tasty-fresh-ripe-juicy-white-desk_179666-169.jpg?size=626&ext=jpg" />
+      <Title>{product.name.en}</Title>
+      <Image src={product.imageUrl} />
       <ButtonWrapper>
         <Button height="54px" color="white" shape="rounded">
           add to cart
